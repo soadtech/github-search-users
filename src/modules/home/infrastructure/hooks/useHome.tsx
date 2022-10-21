@@ -8,8 +8,8 @@ export default function useHome() {
     const [loading, setLoading] = useState(false)
     const [githubUsers, setGithubUsers] = useState<GithubUser[]>([])
 
-    async function getUsersByQuery(value: string) {
-        const githubUsers = await homeServices.getByName(value)
+    async function getUsersByQuery(name: string) {
+        const githubUsers = await homeServices.getGithubUsersByName(name)
         setGithubUsers(githubUsers)
         setLoading(false)
     }
@@ -17,6 +17,7 @@ export default function useHome() {
     const handleDebounce = useCallback(debounce(async function (textValue: string) {
         getUsersByQuery(textValue).catch(() => setLoading(false))
     }, 1000, false), [])
+
     function handlerChange(event: ChangeEvent<HTMLInputElement>) {
         setLoading(true)
         const {value} = event.target
