@@ -1,16 +1,13 @@
 const Headers = () => ({
     'Content-Type': 'application/json',
-    Authorization: `Bearer ${localStorage.getItem('token') ?? ''}`
+    'Accept': 'application/vnd.github+json',
+    'Authorization': `Bearer ${process.env.REACT_APP_TOKEN ?? ''}`
 })
 
-interface ResponseWS<T extends any> {
+export interface ResponseWS<T extends any> {
     status: number
     error: boolean
-    response: {
-        message: string
-        statusCode: string
-        data: T
-    }
+    response: T
 }
 
 interface Options {
