@@ -9,9 +9,9 @@ export default function useHome() {
     const [githubUsers, setGithubUsers] = useState<GithubUser[]>([])
 
     async function getUsersByQuery(value: string) {
-        setLoading(false)
         const githubUsers = await homeServices.getByName(value)
         setGithubUsers(githubUsers)
+        setLoading(false)
     }
 
     const handleDebounce = useCallback(debounce(async function (textValue: string) {
