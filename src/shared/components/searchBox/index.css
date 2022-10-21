@@ -1,11 +1,18 @@
-
+.container-input {
+    position: relative;
+}
 .search-box {
     padding: 0.6rem 1.1rem;
     border: none;
     background-color: white;
-    width: 90%;
+    width: 93%;
     font-size: 1rem;
     outline: none;
     border-radius: 0.2rem;
 }
 
+.container-loader {
+    position: absolute;
+    right: 3rem;
+    bottom: 2.2rem;
+}
