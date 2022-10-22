@@ -1,0 +1,29 @@
+.container__details {
+    margin-top: 20px;
+}
+.details__avatar {
+    width: 30%;
+    height: 50%;
+}
+.innerContainer {
+    display: flex;
+}
+
+.container__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 5px;
+}
+.card__repository {
+    background-color: white;
+    padding: 0.2rem;
+    border-radius: 0.2rem;
+    margin: 0.5rem 0;
+    display: flex;
+    justify-content: space-between;
+}
+.container__loader {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
