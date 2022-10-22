@@ -1,13 +1,17 @@
 import React from "react";
 import GithubUser from "../../../../../shared/dto/github/user";
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import {useDispatch} from "react-redux";
+import {setUserAction} from "../../../../../shared/store/slices/userSlice";
 import './index.css'
 
 export default function GithubUserCard(props: any) {
     const navigate = useNavigate()
+    const dispatch = useDispatch()
     const githubUser: GithubUser = props.githubUser
     function goToDetail() {
-        navigate(`/userDetail/${githubUser.login}?tab=repositories`)
+        dispatch(setUserAction(githubUser))
+        navigate(`/userDetail/${githubUser.login}`)
     }
     return (
             <div onClick={goToDetail} className="container__user">
